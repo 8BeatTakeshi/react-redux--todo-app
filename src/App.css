@@ -1,5 +1,7 @@
 .wrapper {
-  width: 400px;
+  min-width: 340px;
+  max-width: 500px;
   margin-inline: auto;
   padding-block: 24px;
+  padding-inline: 12px;
 }

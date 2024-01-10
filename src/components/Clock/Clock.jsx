@@ -1,11 +1,8 @@
-import React from "react";
-
 import styles from "./Clock.module.css";
 import useDate from "../../hooks/useDate";
 
 const Clock = () => {
   const currentDate = useDate();
-  console.log(currentDate);
   return (
     <div className={styles.clock}>
       <div className={styles.left}>

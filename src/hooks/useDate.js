@@ -60,6 +60,8 @@ const useDate = () => {
       getDate();
     }, 1000);
 
+    getDate();
+
     return () => clearInterval(intervalId);
   }, []);
 
