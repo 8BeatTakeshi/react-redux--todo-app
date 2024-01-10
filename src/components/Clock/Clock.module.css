@@ -1,0 +1,49 @@
+.clock {
+  background: blue;
+  padding: 20px;
+  border-radius: 5px;
+  background-color: #ffffff;
+  color: #676978;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  margin-bottom: 16px;
+}
+
+.day {
+  font-size: 28px;
+  text-transform: uppercase;
+}
+
+.left_right {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.day_number {
+  font-size: 40px;
+  font-weight: bold;
+}
+
+.month {
+  font-weight: bold;
+}
+
+.time {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.time_top {
+  display: flex;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.seconds {
+  font-size: 40px;
+}
