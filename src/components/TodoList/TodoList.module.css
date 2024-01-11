@@ -7,3 +7,33 @@
   color: #444854;
   overflow: hidden;
 }
+
+.todo_info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 15px 20px;
+  background-color: #ffffff;
+  margin-bottom: 8px;
+  border-radius: 5px;
+  font-size: 18px;
+  color: #676978;
+}
+
+.task_completed {
+  font-weight: 600;
+}
+
+.clear_all {
+  border: none;
+  background: transparent;
+  outline: none;
+  color: #ff5e5e;
+  padding: 4px 8px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.clear_all:focus-visible {
+  outline: 2px solid #ff5e5e;
+}

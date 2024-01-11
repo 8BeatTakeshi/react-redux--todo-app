@@ -1,9 +1,13 @@
 /* eslint-disable react/prop-types */
-import React, { useRef } from "react";
+import { useRef } from "react";
+import { useDispatch } from "react-redux";
+import { v4 as uuidv4 } from "uuid";
 
 import styles from "./TodoForm.module.css";
+import { createTodo } from "../../features/todos";
 
-const TodoForm = ({ handleCreate }) => {
+const TodoForm = () => {
+  const dispatch = useDispatch();
   const inputRef = useRef();
   console.log(inputRef);
 
@@ -12,7 +16,12 @@ const TodoForm = ({ handleCreate }) => {
 
     if (!inputRef.current.value.trim()) return;
 
-    handleCreate(inputRef.current.value);
+    const newTodo = {
+      id: uuidv4(),
+      task: inputRef.current.value,
+      completed: false,
+    };
+    dispatch(createTodo(newTodo));
     inputRef.current.value = "";
   };
 
@@ -22,7 +31,7 @@ const TodoForm = ({ handleCreate }) => {
         ref={inputRef}
         className={styles.todoForm_input}
         type="text"
-        placeholder="Enter a new todo..."
+        placeholder="Entrer une nouvelle tâche..."
       />
     </form>
   );

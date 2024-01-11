@@ -1,15 +1,32 @@
 /* eslint-disable react/prop-types */
-import styles from "./TodoItem.module.css";
+import { useDispatch } from "react-redux";
 
-const TodoItem = ({ todo, handleCompleted, handleDelete }) => {
-  console.log(todo.id);
+import styles from "./TodoItem.module.css";
+import {
+  completeTodo,
+  deleteTodo,
+  updateCompletedCount,
+} from "../../features/todos";
+
+const TodoItem = ({ todo }) => {
+  const dispatch = useDispatch();
+
+  const handleComplete = (todo) => {
+    if (todo.completed) {
+      dispatch(updateCompletedCount(-1));
+    } else {
+      dispatch(updateCompletedCount(1));
+    }
+    dispatch(completeTodo(todo.id));
+  };
+
   return (
     <div className={styles.todoItem}>
       <div
         className={`${styles.todoItem_check} ${
           todo.completed ? styles.completed : ""
         }`}
-        onClick={() => handleCompleted(todo.id)}
+        onClick={() => handleComplete(todo)}
       >
         <img
           className={` ${
@@ -30,7 +47,7 @@ const TodoItem = ({ todo, handleCompleted, handleDelete }) => {
         </p>
         <button
           className={styles.todoItem_delete}
-          onClick={() => handleDelete(todo.id)}
+          onClick={() => dispatch(deleteTodo(todo.id))}
         >
           <i className="fas fa-trash" />
         </button>
